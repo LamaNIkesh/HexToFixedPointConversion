@@ -11,7 +11,7 @@ python hexToDec.py hexFile.hex datatype(refer to fixed point data types indicate
 eg python hexToDec 24sf.hex 6
 ########################################
 
-######Fixed poin data types#############
+######Fixed point data types#############
 
 #unsigned datatypes (uf)
 eight_bit_ufix = 0 
