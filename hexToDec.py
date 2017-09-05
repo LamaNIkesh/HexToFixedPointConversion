@@ -11,8 +11,6 @@ python hexToDec-v2.py hexFile.hex datatype
 eg python hexToDec 24sf.hex 6
 
 """
-
-
 import sys # library required to read and write the files
 import numpy as np
 import binascii  # this library converts hex string to raw hex, this helps in keeping the hex file size very concise
@@ -44,21 +42,36 @@ class HexToDec:
 	#takes the fractional part and convert binary into dec representation
 	#eg for .1001 => 1/2 + 0/4 + 0 /8 + 1 /16  = 0.5625
 	def fractionalPartCal(self):
+		'''
+		Takes fractional part and convert binary into decimal representation
+		Args:
+			self or instance of the object
+		Returns:
+			int: decimal representation of the binary fractional part
+		
+		'''
 		print("fractional val cal")
 		size = len(self.fractionalpart)
-		print (size)
-		print (self.fractionalpart)
+		#print (size)
+		#print (self.fractionalpart)
 		decValue = 0.0 
 		#this loop iterates and divides each part by 2^n
 		#eg for .1001 => 1/2 + 0/4 + 0 /8 + 1 /16 
 		for i in range(size):
 			decValue +=(float(self.fractionalpart[i])/2**(i + 1))
-		print (decValue)
+		#print (decValue)
 		return decValue
 	
 	#This method takes the data type and rawHex file and converts it into
 	#its correponding fixed point and returns the value as float
 	def HexToFixedpoint(self):
+		'''
+		Coverts rawHex into its corresponding fixed point representation as per the data type
+		Args:
+			none, self
+		Returns:
+			Decimal representation of the raw hex input	
+		'''
 		#print ("hex to fix point conversion")
 		#based on the dataType the size for integer and fractional
 		#part needs to be known
@@ -131,6 +144,13 @@ class HexToDec:
 	#this class method returns a dict of integer size and decimal size based 
 	#on the data type
 	def intSizeDecSize(self):
+		'''
+		maps the user input to the proper data type
+		Args:
+			none
+		Return:
+			Dictionary with integer and decimal size for the corresponding data type
+		'''
 		if dataType == '0' or dataType == '4':
 			intSize = '4' 
 			decSize = '4'
